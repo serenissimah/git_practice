@@ -1,25 +1,29 @@
-# def puts_git(cmd)
-#   puts `git #{cmd} -h`  #using backticks
-# end
+require "colorize"
 
-# def menu
-#   puts "1: Enter git command"
-#   puts "2: Exit"
-#   choice = gets.to_i
-#   sleep(3)
-#   print `clear`
+
+def puts_git(cmd)
+  puts `git #{cmd} -h`  #using backticks
+end
+
+def menu
+  puts "MAIN MENU".colorize(:cyan)
+  puts "1: Enter git command".colorize(:yellow)
+  puts "2: Exit".colorize(:yellow)
+  choice = gets.to_i
+  sleep(3)
+  print `clear`
   
-#   case choice
-#     when 1
-#       puts "Enter git command"
-#       puts_git(gets.strip)
-#       menu
-#    when 2
-#     puts "Thanks for using our program!"
-#     exit
-#    else
-#     puts "Invalid Input"
-#     menu
-#   end
-# end
-# menu
+  case choice
+    when 1
+      puts "Enter git command".colorize(:green)
+      puts_git(gets.strip)
+      menu
+   when 2
+    puts "Thanks for using our program!".colorize(:blue)
+    exit
+   else
+    puts "Invalid Input".colorize(:red)
+    menu
+  end
+end
+menu
